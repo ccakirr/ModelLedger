@@ -98,5 +98,3 @@ https://joyful-churros-46e4cf.netlify.app
 ## Dürüst raporlama notu
 
 Banka modeli eğitim verisinde %99,98, test verisinde ise %80,11 skor aldı. Aradaki ≈19,87 puanlık fark 10 puanlık eşiğin çok üstünde olduğu için model **Overfitting** olarak işaretlendi: model eğitim verisini büyük ölçüde ezberlemiş ve yeni veride aynı başarıyı gösterememiş. Kripto modelinde Logistic Regression testte %50,38 aldı; hiçbir şey öğrenmeyen Dummy Classifier baseline'ı ise %50,05 aldı. Aradaki 0,33 puanlık fark 1 puanlık eşiğin altında kaldığı için bu sonuç baseline'dan anlamlı derecede iyi sayılmadı; yani model, veriden öğrenmeyen bir referanstan pratikte ayırt edilemiyor.
-
-> Not: Örnek verilerdeki bazı değerler (banka modelinin baseline skoru, kripto modellerinin eğitim skorları) henüz girilmedi. Bu değerler tabloda "—" olarak görünür ve ilgili kural bu deneyler için değerlendirilmez.
