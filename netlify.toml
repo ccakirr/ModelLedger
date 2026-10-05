@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Vite 8, Node 20.19+ veya 22.12+ ister; yerelde doğrulanan sürümle aynı
+  NODE_VERSION = "24"
+
+# SPA: bilinmeyen tüm yollar index.html'e düşsün (yenilemede 404 olmasın)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
