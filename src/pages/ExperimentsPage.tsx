@@ -69,6 +69,10 @@ function ExperimentsPage() {
   const handleDelete = (experiment: Experiment) => {
     if (window.confirm(`"${experiment.name}" deneyi silinsin mi?`)) {
       deleteExperiment(experiment.id)
+      // Silinen deney düzenleniyorsa formu kapat
+      if (formState?.mode === 'edit' && formState.experiment.id === experiment.id) {
+        setFormState(null)
+      }
     }
   }
 
