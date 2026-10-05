@@ -80,14 +80,14 @@ function ExperimentsPage() {
 
   return (
     <main className="min-h-screen bg-slate-900 text-slate-100">
-      <div className="mx-auto max-w-6xl px-4 py-10">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
         <div className="flex items-center justify-between gap-4">
-          <h1 className="text-3xl font-bold tracking-tight text-emerald-400">Deneyler</h1>
+          <h1 className="text-2xl font-semibold tracking-tight text-slate-100 sm:text-3xl">Deneyler</h1>
           {!formState && (
             <button
               type="button"
               onClick={() => setFormState({ mode: 'create' })}
-              className="rounded-md bg-emerald-500 px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-emerald-400"
+              className="shrink-0 rounded-md bg-emerald-500 px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
             >
               Yeni Deney
             </button>
@@ -95,8 +95,8 @@ function ExperimentsPage() {
         </div>
 
         {formState && (
-          <section className="mt-6 rounded-lg border border-slate-700 p-6">
-            <h2 className="mb-4 text-lg font-semibold">
+          <section className="mt-6 rounded-lg border border-slate-700 bg-slate-800/40 p-4 sm:p-6">
+            <h2 className="mb-4 text-lg font-semibold text-slate-100">
               {formState.mode === 'edit' ? 'Deneyi Düzenle' : 'Yeni Deney'}
             </h2>
             <ExperimentForm

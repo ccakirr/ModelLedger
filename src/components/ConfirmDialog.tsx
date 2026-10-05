@@ -37,9 +37,9 @@ function ConfirmDialog({
       }}
       // Tarayıcı Escape'i yine de kapatırsa (ör. art arda Escape) state'i eşitle
       onClose={onCancel}
-      className="m-auto w-[calc(100%-2rem)] max-w-sm rounded-lg border border-slate-700 bg-slate-800 p-6 text-slate-100 shadow-xl backdrop:bg-black/60"
+      className="m-auto w-[calc(100%-2rem)] max-w-sm rounded-lg border border-slate-700 bg-slate-800 p-5 text-slate-100 shadow-xl backdrop:bg-black/60 sm:p-6"
     >
-      <h2 id="confirm-dialog-title" className="text-lg font-semibold">
+      <h2 id="confirm-dialog-title" className="text-lg font-semibold text-slate-100">
         {title}
       </h2>
       <p id="confirm-dialog-message" className="mt-2 text-sm text-slate-300">
@@ -49,14 +49,14 @@ function ConfirmDialog({
         <button
           type="button"
           onClick={onCancel}
-          className="rounded-md border border-slate-600 px-4 py-2 text-sm font-medium text-slate-300 hover:bg-slate-700"
+          className="rounded-md border border-slate-600 px-4 py-2 text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-800"
         >
           {cancelLabel}
         </button>
         <button
           type="button"
           onClick={onConfirm}
-          className="rounded-md bg-red-500 px-4 py-2 text-sm font-semibold text-white hover:bg-red-400"
+          className="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-800"
         >
           {confirmLabel}
         </button>

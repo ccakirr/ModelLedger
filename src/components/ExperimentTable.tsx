@@ -64,32 +64,32 @@ function ExperimentTable({
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+      <div className="flex flex-col gap-3 md:flex-row md:flex-wrap md:items-center md:gap-x-6">
         <input
           type="search"
           value={filters.query}
           onChange={(e) => onFiltersChange({ ...filters, query: e.target.value })}
           placeholder="Ad, model veya veri seti ara…"
           aria-label="Deney ara"
-          className="w-full rounded-md border border-slate-600 bg-slate-800 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 sm:max-w-xs"
+          className="w-full min-w-0 rounded-md border border-slate-600 bg-slate-800 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 aria-invalid:border-red-500 sm:max-w-xs"
         />
-        <label className="flex items-center gap-2 text-sm text-slate-300">
+        <label className="flex cursor-pointer items-center gap-2 text-sm text-slate-300">
           <input
             type="checkbox"
             checked={filters.onlyOverfitting}
             onChange={(e) => onFiltersChange({ ...filters, onlyOverfitting: e.target.checked })}
-            className="h-4 w-4 accent-emerald-500"
+            className="h-4 w-4 shrink-0 accent-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
           />
           Sadece overfitting olanlar
         </label>
-        <label className="flex items-center gap-2 text-sm text-slate-300">
+        <label className="flex cursor-pointer items-center gap-2 text-sm text-slate-300">
           <input
             type="checkbox"
             checked={filters.onlyNoSignificantGain}
             onChange={(e) =>
               onFiltersChange({ ...filters, onlyNoSignificantGain: e.target.checked })
             }
-            className="h-4 w-4 accent-emerald-500"
+            className="h-4 w-4 shrink-0 accent-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
           />
           Sadece anlamlı fark olmayanlar
         </label>
@@ -97,7 +97,7 @@ function ExperimentTable({
 
       <div className="overflow-x-auto rounded-lg border border-slate-700">
         <table className="w-full min-w-[56rem] text-left text-sm">
-          <thead className="bg-slate-800 text-xs uppercase tracking-wide text-slate-400">
+          <thead className="bg-slate-800 text-xs font-medium uppercase tracking-wide text-slate-400">
             <tr>
               {COLUMNS.map(({ key, label, numeric }) => {
                 const active = sort?.key === key
@@ -113,7 +113,7 @@ function ExperimentTable({
                     <button
                       type="button"
                       onClick={() => onSortChange(key)}
-                      className={`inline-flex items-center gap-1 uppercase hover:text-slate-100 ${active ? 'text-emerald-400' : ''}`}
+                      className={`inline-flex items-center gap-1 rounded-sm uppercase hover:text-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${active ? 'text-emerald-400' : ''}`}
                     >
                       {label}
                       <span aria-hidden="true" className="w-3">
@@ -131,7 +131,7 @@ function ExperimentTable({
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-800">
+          <tbody className="divide-y divide-slate-700/60">
             {experiments.length === 0 ? (
               <tr>
                 <td colSpan={COLUMNS.length + 2} className="px-4 py-10 text-center text-slate-400">
@@ -156,14 +156,16 @@ function ExperimentTable({
                     <button
                       type="button"
                       onClick={() => onEdit(e)}
-                      className="text-sm font-medium text-emerald-400 hover:text-emerald-300"
+                      aria-label={`${e.name} deneyini düzenle`}
+                      className="rounded-sm text-sm font-medium text-emerald-400 hover:text-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
                     >
                       Düzenle
                     </button>
                     <button
                       type="button"
                       onClick={() => onDelete(e)}
-                      className="ml-3 text-sm font-medium text-red-400 hover:text-red-300"
+                      aria-label={`${e.name} deneyini sil`}
+                      className="ml-4 rounded-sm text-sm font-medium text-red-400 hover:text-red-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
                     >
                       Sil
                     </button>

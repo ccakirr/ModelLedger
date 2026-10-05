@@ -38,7 +38,7 @@ const SCORE_FIELDS: { name: ScoreField; label: string }[] = [
 ]
 
 const inputClass =
-  'w-full rounded-md border border-slate-600 bg-slate-800 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500'
+  'w-full min-w-0 rounded-md border border-slate-600 bg-slate-800 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 aria-invalid:border-red-500'
 
 const newRow = (key = '', value = ''): HyperparameterRow => ({ id: crypto.randomUUID(), key, value })
 
@@ -214,7 +214,7 @@ function ExperimentForm({ initialValues, onSubmit, onCancel }: ExperimentFormPro
                     type="button"
                     onClick={() => removeRow(row.id)}
                     aria-label={`${index + 1}. hiperparametreyi sil`}
-                    className="shrink-0 rounded-md border border-slate-600 px-3 text-sm text-slate-400 hover:border-red-500 hover:text-red-400"
+                    className="shrink-0 rounded-md border border-slate-600 px-3 py-2 text-sm font-medium text-slate-400 hover:border-red-500 hover:text-red-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
                   >
                     Sil
                   </button>
@@ -227,7 +227,7 @@ function ExperimentForm({ initialValues, onSubmit, onCancel }: ExperimentFormPro
         <button
           type="button"
           onClick={addRow}
-          className="mt-2 text-sm font-medium text-emerald-400 hover:text-emerald-300"
+          className="mt-3 rounded-md text-sm font-medium text-emerald-400 hover:text-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
         >
           + Satır ekle
         </button>
@@ -238,14 +238,14 @@ function ExperimentForm({ initialValues, onSubmit, onCancel }: ExperimentFormPro
           <button
             type="button"
             onClick={onCancel}
-            className="rounded-md border border-slate-600 px-4 py-2 text-sm font-medium text-slate-300 hover:bg-slate-800"
+            className="rounded-md border border-slate-600 px-4 py-2 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
           >
             Vazgeç
           </button>
         )}
         <button
           type="submit"
-          className="rounded-md bg-emerald-500 px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-emerald-400"
+          className="rounded-md bg-emerald-500 px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
         >
           Kaydet
         </button>

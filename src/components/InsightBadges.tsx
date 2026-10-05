@@ -14,7 +14,7 @@ function InsightBadges({ experiment }: { experiment: Experiment }) {
       {overfitting && (
         <span
           title={`Eğitim–test farkı ${formatPoints(trainTestGap(experiment))} puan`}
-          className="rounded-full bg-red-500/15 px-2.5 py-0.5 text-xs font-medium text-red-400 ring-1 ring-red-500/40"
+          className="inline-flex items-center whitespace-nowrap rounded-full bg-red-500/15 px-2.5 py-0.5 text-xs font-medium text-red-300 ring-1 ring-red-500/40"
         >
           Overfitting
         </span>
@@ -22,7 +22,7 @@ function InsightBadges({ experiment }: { experiment: Experiment }) {
       {noSignificantGain && (
         <span
           title={`Test–baseline farkı ${formatPoints(testBaselineGain(experiment))} puan`}
-          className="rounded-full bg-yellow-500/15 px-2.5 py-0.5 text-xs font-medium text-yellow-300 ring-1 ring-yellow-500/40"
+          className="inline-flex items-center whitespace-nowrap rounded-full bg-yellow-500/15 px-2.5 py-0.5 text-xs font-medium text-yellow-300 ring-1 ring-yellow-500/40"
         >
           Anlamlı fark yok
         </span>
