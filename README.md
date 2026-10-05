@@ -89,7 +89,7 @@ Diğer komutlar:
 
 ## Canlı demo
 
-[NETLIFY_LINKİ]
+(https://joyful-churros-46e4cf.netlify.app)
 
 ## Ekran görüntüsü
 
