@@ -69,7 +69,7 @@ Gereksinim: Node.js 20.19+ veya 22.12+.
 
 ```bash
 git clone https://github.com/ccakirr/ModelLedger
-cd modelledger
+cd ModelLedger
 npm install
 npm run dev
 ```
