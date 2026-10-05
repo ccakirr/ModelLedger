@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import ConfirmDialog from '../components/ConfirmDialog'
 import ExperimentForm from '../components/ExperimentForm'
 import ExperimentTable, {
   type SortKey,
@@ -17,6 +18,7 @@ function ExperimentsPage() {
   const { experiments, addExperiment, updateExperiment, deleteExperiment } = useExperiments()
   const [formState, setFormState] = useState<FormState>(null)
   const [sort, setSort] = useState<SortState | null>(null)
+  const [pendingDelete, setPendingDelete] = useState<Experiment | null>(null)
   const [filters, setFilters] = useState<TableFilters>({
     query: '',
     onlyOverfitting: false,
@@ -66,14 +68,14 @@ function ExperimentsPage() {
     setFormState(null)
   }
 
-  const handleDelete = (experiment: Experiment) => {
-    if (window.confirm(`"${experiment.name}" deneyi silinsin mi?`)) {
-      deleteExperiment(experiment.id)
-      // Silinen deney düzenleniyorsa formu kapat
-      if (formState?.mode === 'edit' && formState.experiment.id === experiment.id) {
-        setFormState(null)
-      }
+  const handleConfirmDelete = () => {
+    if (!pendingDelete) return
+    deleteExperiment(pendingDelete.id)
+    // Silinen deney düzenleniyorsa formu kapat
+    if (formState?.mode === 'edit' && formState.experiment.id === pendingDelete.id) {
+      setFormState(null)
     }
+    setPendingDelete(null)
   }
 
   return (
@@ -114,10 +116,19 @@ function ExperimentsPage() {
             filters={filters}
             onFiltersChange={setFilters}
             onEdit={(experiment) => setFormState({ mode: 'edit', experiment })}
-            onDelete={handleDelete}
+            onDelete={setPendingDelete}
           />
         </section>
       </div>
+
+      {pendingDelete && (
+        <ConfirmDialog
+          title="Deneyi sil"
+          message={`'${pendingDelete.name}' silinecek. Bu işlem geri alınamaz.`}
+          onConfirm={handleConfirmDelete}
+          onCancel={() => setPendingDelete(null)}
+        />
+      )}
     </main>
   )
 }
