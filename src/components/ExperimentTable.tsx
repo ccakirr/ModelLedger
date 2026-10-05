@@ -97,7 +97,7 @@ function ExperimentTable({
 
       <div className="overflow-x-auto rounded-lg border border-slate-700">
         <table className="w-full min-w-[56rem] text-left text-sm">
-          <thead className="bg-slate-800 text-xs font-medium uppercase tracking-wide text-slate-400">
+          <thead className="bg-slate-800 text-xs font-medium whitespace-nowrap uppercase tracking-wide text-slate-400">
             <tr>
               {COLUMNS.map(({ key, label, numeric }) => {
                 const active = sort?.key === key

@@ -21,8 +21,9 @@ function ConfirmDialog({
 
   useEffect(() => {
     const dialog = dialogRef.current
+    // Cleanup'ta close() çağrılmaz: StrictMode'da asenkron "close" olayı onClose'u
+    // tetikleyip modalı hemen kapatırdı. Unmount'ta öğe DOM'dan kalkınca modal zaten kapanır.
     if (dialog && !dialog.open) dialog.showModal()
-    return () => dialog?.close()
   }, [])
 
   return (
