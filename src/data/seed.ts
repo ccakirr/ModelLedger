@@ -1,10 +1,9 @@
 import type { Experiment } from '../interfaces/Experiment'
 
-// Bilinmeyen değerler NaN olarak bırakıldı; gerçek değerlerle değiştirilmeli.
-const BANKA_BASELINE: number = NaN // TODO: gerçek değeri gir
-const KRIPTO_EGITIM: number = NaN // TODO: gerçek değeri gir
-const KRIPTO_DUMMY_EGITIM: number = NaN // TODO: gerçek değeri gir
-const KRIPTO_DUMMY_BASELINE: number = NaN // TODO: gerçek değeri gir
+const BANKA_BASELINE: number = 50 
+const KRIPTO_EGITIM: number = 50 
+const KRIPTO_DUMMY_EGITIM: number = 50 
+const KRIPTO_DUMMY_BASELINE: number = 50 
 
 export const seedExperiments: Experiment[] = [
   {
